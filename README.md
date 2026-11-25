@@ -21,4 +21,4 @@ https://portfolio-olive-one-92.vercel.app. Other branches get preview URLs.
 
 ## Previous version
 
-The earlier Create React App portfolio is kept at the tag `legacy-cra-portfolio`.
+The earlier Create React App portfolio is in the history at commit `7ef6336` (`git checkout 7ef6336`).
