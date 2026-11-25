@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Nouman Faiz — Senior Data Engineer</title>
+<meta name="description" content="Senior data engineer with 5 years across finance, healthcare, IoT and railway. Snowflake, dbt, Microsoft Fabric, Azure, Cortex AI. Lahore, Pakistan — remote.">
+<meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Muhammad Nouman Faiz — Senior Data Engineer">
+<meta property="og:description" content="Snowflake + dbt, Microsoft Fabric, Cortex AI. Five years of pipelines, usually the ones that already stalled once.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231D1D1F'/><circle cx='11' cy='11' r='3.4' fill='%2330D158'/><circle cx='21' cy='21' r='3.4' fill='%230A84FF'/><path d='M11 14.6v3.4a3 3 0 0 0 3 3h3.6' stroke='%23F5F5F7' stroke-width='1.6' fill='none'/></svg>">
+<style>
+/* ============================================================
+   Tokens
+   ============================================================ */
+:root{
+  --bg:#F5F5F7;
+  --bg-2:#EDEDF0;
+  --card:rgba(255,255,255,.72);
+  --card-solid:#FFFFFF;
+  --chrome:rgba(245,245,247,.72);
+  --ink:#1D1D1F;
+  --ink-2:#43454A;
+  --ink-3:#86868B;
+  --sep:rgba(0,0,0,.10);
+  --sep-2:rgba(0,0,0,.18);
+  --blue:#0071E3;
+  --green:#1D8C4E;
+  --shadow-s:0 1px 2px rgba(0,0,0,.05), 0 6px 18px rgba(0,0,0,.05);
+  --shadow-l:0 2px 8px rgba(0,0,0,.08), 0 24px 68px rgba(0,0,0,.16);
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",system-ui,Roboto,"Helvetica Neue",sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --r-card:18px;
+  --r-chip:10px;
+  --r-sheet:26px;
+  --wrap:1080px;
+  --curve:cubic-bezier(.32,.72,0,1); /* critically-damped feel */
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#000000;
+    --bg-2:#0B0B0C;
+    --card:rgba(28,28,30,.72);
+    --card-solid:#1C1C1E;
+    --chrome:rgba(0,0,0,.66);
+    --ink:#F5F5F7;
+    --ink-2:#C7C7CC;
+    --ink-3:#98989D;
+    --sep:rgba(255,255,255,.13);
+    --sep-2:rgba(255,255,255,.22);
+    --blue:#0A84FF;
+    --green:#30D158;
+    --shadow-s:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.4);
+    --shadow-l:0 2px 10px rgba(0,0,0,.5), 0 28px 80px rgba(0,0,0,.6);
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:1.0625rem;line-height:1.5;letter-spacing:0;
+  font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+p{margin:0 0 .85em}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;font-weight:600;font-optical-sizing:auto}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.5rem}
+
+/* size-specific tracking + leading */
+h1{font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.03;letter-spacing:-.032em;font-weight:700}
+h2{font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.1;letter-spacing:-.022em}
+h3{font-size:1.3rem;line-height:1.18;letter-spacing:-.016em}
+h4{font-size:1.0625rem;line-height:1.25;letter-spacing:-.01em}
+.label{font-family:var(--mono);font-size:.6875rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.mono{font-family:var(--mono);font-size:.75rem;letter-spacing:.02em}
+.sec{color:var(--ink-2)}
+
+/* ============================================================
+   Chrome — translucent, content scrolls under, soft scroll edge
+   ============================================================ */
+.bar{position:sticky;top:0;z-index:60;background:var(--chrome);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
+.bar::after{
+  content:"";position:absolute;left:0;right:0;top:100%;height:14px;pointer-events:none;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  -webkit-mask-image:linear-gradient(to bottom,#000,transparent);mask-image:linear-gradient(to bottom,#000,transparent);
+}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;height:3.25rem}
+.bar-name{font-size:.9375rem;font-weight:600;letter-spacing:-.01em}
+.bar-name span{color:var(--ink-3);font-weight:400}
+.bar-nav{display:flex;gap:1.5rem}
+.bar-nav a{font-size:.8125rem;color:var(--ink-2);letter-spacing:-.005em}
+.bar-nav a:hover{color:var(--ink)}
+@media (max-width:600px){.bar-nav a:nth-child(-n+2){display:none}}
+
+/* ============================================================
+   Press feedback — instant, on pointer-down
+   ============================================================ */
+.pressable{transition:transform 260ms var(--curve),background 220ms ease,border-color 220ms ease}
+.pressable:active,.pressable.pressing{transform:scale(.975);transition:transform 90ms ease-out}
+.node.pressing .n-box{fill:var(--bg-2)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{padding:4.5rem 0 1rem}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:3.5rem;align-items:start}
+.status{display:inline-flex;align-items:center;gap:.5rem;color:var(--ink-3);font-size:.8125rem;margin-bottom:1.4rem}
+.status i{width:.5rem;height:.5rem;border-radius:50%;background:var(--green);display:block}
+.lede{font-size:clamp(1.2rem,2.2vw,1.6rem);line-height:1.25;letter-spacing:-.019em;font-weight:500;margin:1.4rem 0 1rem;max-width:24ch}
+.hero .sub{font-size:1.0625rem;color:var(--ink-2);max-width:46ch;line-height:1.55}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.btn{display:inline-flex;align-items:center;padding:.7rem 1.25rem;border-radius:980px;font-size:.9375rem;font-weight:500;letter-spacing:-.01em;border:1px solid var(--sep-2)}
+.btn.primary{background:var(--blue);color:#fff;border-color:transparent}
+.btn:hover{background:var(--card-solid)}
+.btn.primary:hover{background:var(--blue);filter:brightness(1.08)}
+
+/* ============================================================
+   Career graph — nodes are buttons that open the case sheet
+   ============================================================ */
+.dag{background:var(--card);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid var(--sep);border-radius:var(--r-card);padding:1rem 1.1rem 1.15rem;box-shadow:var(--shadow-s)}
+.dag-head{display:flex;justify-content:space-between;gap:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--sep)}
+.dag svg{width:100%;height:auto;display:block;margin-top:.35rem}
+.node{cursor:pointer;transform-box:fill-box;transform-origin:center}
+.node text{font-family:var(--mono)}
+.n-name{font-size:14px;font-weight:600;fill:var(--ink);letter-spacing:-.01em}
+.n-meta{font-size:10.5px;fill:var(--ink-3);letter-spacing:.03em}
+.n-box{fill:var(--card-solid);stroke:var(--sep-2);stroke-width:1}
+.node:hover .n-box{stroke:var(--blue)}
+.edge{fill:none;stroke:var(--sep-2);stroke-width:1.3}
+.edge.par{stroke-dasharray:3 5}
+.legend{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.9rem;color:var(--ink-3);font-size:.6875rem;letter-spacing:.05em;font-family:var(--mono);text-transform:uppercase}
+.legend i{display:inline-block;width:.4375rem;height:.4375rem;border-radius:50%;margin-right:.4rem}
+.legend i.done{background:var(--green)}
+.legend i.run{background:var(--blue)}
+.dag-list{display:none}
+.dag-list li{position:relative;padding:.8rem 0 .8rem 1.6rem;border-bottom:1px solid var(--sep);cursor:pointer}
+.dag-list li:last-child{border-bottom:0}
+.dag-list li::before{content:"";position:absolute;left:.25rem;top:1.15rem;width:.5rem;height:.5rem;border-radius:50%;background:var(--green)}
+.dag-list li.running::before{background:var(--blue)}
+.dag-list .t{font-family:var(--mono);font-size:.8125rem;font-weight:600}
+.dag-list .m{font-family:var(--mono);font-size:.6875rem;color:var(--ink-3)}
+
+/* ============================================================
+   Summary rows
+   ============================================================ */
+.summary{margin-top:4rem;border-top:1px solid var(--sep)}
+.summary li{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:1.5rem;padding:1.15rem 0;border-bottom:1px solid var(--sep)}
+.summary .k{padding-top:.2rem}
+.summary .v{font-size:clamp(1.05rem,1.7vw,1.25rem);font-weight:500;letter-spacing:-.016em;line-height:1.32}
+.summary .v em{font-style:normal;color:var(--blue)}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+section{padding:5.5rem 0 0}
+.s-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.8rem;flex-wrap:wrap}
+.s-head .label{padding-bottom:.15rem}
+
+/* work cards */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.card{
+  position:relative;text-align:left;width:100%;font:inherit;color:inherit;cursor:pointer;
+  background:var(--card);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid var(--sep);border-radius:var(--r-card);padding:1.5rem 1.5rem 1.35rem;box-shadow:var(--shadow-s);
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.card:hover{border-color:var(--sep-2)}
+.card .top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.card h3{margin-top:.15rem}
+.card .blurb{color:var(--ink-2);font-size:1rem;line-height:1.5;margin:0}
+.card .metrics{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.35rem}
+.pill{font-size:.75rem;font-family:var(--mono);letter-spacing:.01em;padding:.32rem .6rem;border-radius:var(--r-chip);background:var(--bg-2);color:var(--ink-2)}
+.pill.win{background:color-mix(in srgb,var(--green) 14%,transparent);color:var(--green)}
+.more{margin-top:auto;padding-top:.9rem;display:flex;align-items:center;gap:.35rem;font-size:.875rem;color:var(--blue);font-weight:500}
+.more svg{width:.75rem;height:.75rem}
+
+/* research */
+.builds{display:grid;grid-template-columns:1fr;gap:1rem}
+.build p{max-width:68ch}
+.build{background:var(--card);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--sep);border-radius:var(--r-card);padding:1.5rem;display:flex;flex-direction:column;box-shadow:var(--shadow-s)}
+.build .tag{color:var(--blue);margin-bottom:.75rem}
+.build p{color:var(--ink-2);font-size:1rem;line-height:1.5;margin:.6rem 0 0}
+.build .foot{margin-top:auto;padding-top:1.1rem;font-family:var(--mono);font-size:.6875rem;color:var(--ink-3);line-height:1.7}
+
+/* earlier */
+.earlier{border-top:1px solid var(--sep)}
+.earlier li{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--sep)}
+.earlier .when{color:var(--ink-3);font-size:.8125rem;margin-top:.2rem}
+.earlier .txt{color:var(--ink-2);max-width:68ch}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2.5rem}
+.stack .row{padding:1.1rem 0;border-bottom:1px solid var(--sep)}
+.stack .row h4{margin-bottom:.7rem}
+.items{display:flex;flex-wrap:wrap;gap:.4rem}
+.items span{font-size:.8125rem;padding:.35rem .65rem;border-radius:var(--r-chip);background:var(--bg-2);color:var(--ink-2)}
+
+/* credentials */
+.creds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem}
+.creds h4{margin-bottom:.9rem}
+.creds li{padding:.75rem 0;border-bottom:1px solid var(--sep)}
+.creds li .nw{white-space:nowrap}
+.creds li span:not(.nw){display:block;color:var(--ink-3);font-size:.8125rem;margin-top:.15rem}
+
+/* contact */
+.contact{margin-top:6rem;padding:4.5rem 0 4rem;border-top:1px solid var(--sep)}
+.contact h2{max-width:16ch;font-size:clamp(1.9rem,4.6vw,3.2rem);letter-spacing:-.03em;line-height:1.06}
+.contact p{margin-top:1rem;max-width:44ch;color:var(--ink-2)}
+.clist{margin-top:2rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2.5rem;max-width:46rem}
+.clist a,.clist .item{display:flex;justify-content:space-between;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--sep);font-size:.9375rem}
+.clist a:hover{color:var(--blue)}
+.clist .lbl{color:var(--ink-3)}
+footer{padding:1.5rem 0 2.5rem;color:var(--ink-3);font-size:.8125rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ============================================================
+   Sheet — drag to dismiss, spring driven
+   ============================================================ */
+.scrim{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.34);opacity:0;pointer-events:none;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.scrim.on{pointer-events:auto}
+.sheet{
+  position:fixed;left:50%;bottom:0;z-index:80;width:min(46rem,100%);
+  transform:translate(-50%,100%);
+  background:var(--card-solid);border:1px solid var(--sep);border-bottom:0;
+  border-radius:var(--r-sheet) var(--r-sheet) 0 0;box-shadow:var(--shadow-l);
+  max-height:min(88vh,54rem);display:flex;flex-direction:column;
+  visibility:hidden;touch-action:none;will-change:transform;
+}
+.sheet.on{visibility:visible}
+.sheet-grab{padding:.7rem 0 .35rem;display:flex;justify-content:center;cursor:grab;flex:none}
+.sheet-grab::before{content:"";width:2.25rem;height:.3125rem;border-radius:980px;background:var(--sep-2)}
+.sheet-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:.35rem 1.6rem 1rem;border-bottom:1px solid var(--sep);flex:none}
+.sheet-close{width:2rem;height:2rem;border-radius:50%;border:0;background:var(--bg-2);color:var(--ink-2);font-size:1rem;line-height:1;cursor:pointer;flex:none;display:grid;place-items:center}
+.sheet-body{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:1.4rem 1.6rem 2.5rem;touch-action:pan-y}
+.sheet-body .problem{font-size:1.0625rem;line-height:1.55}
+.sheet-body h4{margin:1.5rem 0 .7rem;color:var(--ink-3);font-family:var(--mono);font-size:.6875rem;letter-spacing:.07em;text-transform:uppercase;font-weight:500}
+.did{display:grid;gap:.6rem}
+.did li{position:relative;padding-left:1.15rem;color:var(--ink-2);line-height:1.5}
+.did li::before{content:"";position:absolute;left:0;top:.7rem;width:.4rem;height:.4rem;border-radius:50%;background:var(--sep-2)}
+.sheet-body .metrics{display:flex;flex-wrap:wrap;gap:.4rem}
+.techline{font-family:var(--mono);font-size:.75rem;color:var(--ink-3);line-height:1.8}
+.detail-src{display:none}
+
+[hidden]{display:none!important}
+/* toast — confirms copies and downloads */
+.toast{position:fixed;left:50%;bottom:calc(1.25rem + env(safe-area-inset-bottom,0px));z-index:90;transform:translate(-50%,1rem);opacity:0;pointer-events:none;max-width:min(30rem,calc(100% - 2rem));padding:.7rem 1.1rem;border-radius:14px;background:var(--card-solid);color:var(--ink);border:1px solid var(--sep);box-shadow:var(--shadow-l);font-size:.9375rem;line-height:1.35;text-align:center;transition:opacity .25s var(--curve),transform .25s var(--curve)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s var(--curve),transform .6s var(--curve)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .cards,.builds,.stack,.creds,.clist{grid-template-columns:1fr}
+  .creds{gap:2rem}
+}
+@media (max-width:720px){
+  .wrap{padding:0 1.15rem}
+  .hero{padding:3rem 0 .5rem}
+  section{padding:4rem 0 0}
+  .dag svg{display:none}
+  .dag-list{display:block}
+  .summary li,.earlier li{grid-template-columns:1fr;gap:.4rem}
+  .sheet{width:100%;max-height:92vh}
+  .sheet-top,.sheet-body{padding-left:1.15rem;padding-right:1.15rem}
+}
+
+/* ============================================================
+   Accessibility preferences
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .pressable,.pressable:active,.pressable.pressing{transition:none;transform:none}
+  .sheet{transition:opacity .2s ease}
+  .toast{transition:none}
+}
+@media (prefers-reduced-transparency:reduce){
+  .bar,.dag,.card,.build,.sheet{background:var(--card-solid);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .bar::after{backdrop-filter:none}
+  .scrim{backdrop-filter:none;background:rgba(0,0,0,.5)}
+}
+@media (prefers-contrast:more){
+  :root{--sep:rgba(0,0,0,.35);--sep-2:rgba(0,0,0,.6);--ink-2:#1D1D1F;--ink-3:#4A4A4E}
+  .card,.build,.dag,.bar{background:var(--card-solid);backdrop-filter:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="bar-name" href="#top">Nouman Faiz <span>· Senior Data Engineer</span></a>
+    <nav class="bar-nav">
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status"><i></i>Lahore, PK — remote across EST / UK / CET</div>
+      <h1>Muhammad<br>Nouman Faiz</h1>
+      <p class="lede">Five years of data engineering, usually on the pipeline that already stalled once.</p>
+      <p class="sub">Snowflake and dbt day to day. Cortex AI and agent tooling where they earn their place. Finance, healthcare, IoT, railway — as engineer and as the person who owns delivery.</p>
+      <div class="actions">
+        <a class="btn primary pressable" href="mailto:Noumanfaiz.369@gmail.com" data-copy="Noumanfaiz.369@gmail.com" data-copy-label="Email address">Email me</a>
+        <a class="btn pressable" href="resume.pdf" download="Muhammad_Nouman_Faiz_Resume.pdf" data-resume>Download résumé</a>
+        <a class="btn pressable" href="https://www.linkedin.com/in/nouman-faiz-805945102" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="dag">
+      <div class="dag-head"><span class="label">career.dag</span><span class="label">5 tasks · 2 running</span></div>
+
+      <svg viewBox="0 0 620 372" role="group" aria-label="Career graph. Select a role to read the detail.">
+        <defs>
+          <marker id="a1" markerWidth="7" markerHeight="7" refX="5.4" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" opacity=".45"/></marker>
+        </defs>
+        <g color="var(--ink)">
+          <path class="edge" marker-end="url(#a1)" d="M288,44 H326"/>
+          <path class="edge" marker-end="url(#a1)" d="M468,72 L468,100 Q468,108 460,108 L160,108 Q152,108 152,116 L152,150"/>
+          <path class="edge" marker-end="url(#a1)" d="M288,184 H326"/>
+          <path class="edge par" marker-end="url(#a1)" d="M420,212 L420,240 Q420,248 412,248 L160,248 Q152,248 152,256 L152,290"/>
+        </g>
+
+        <g class="node pressable" role="button" tabindex="0" data-case="native" aria-label="Native Programmers, data engineer, 2021 to 2022">
+          <rect class="n-box" x="16" y="16" width="272" height="56" rx="12"/>
+          <text class="n-name" x="36" y="41">native-programmers</text>
+          <text class="n-meta" x="36" y="58">data engineer · 2021—22</text>
+          <circle cx="262" cy="34" r="4.5" fill="var(--green)"/>
+        </g>
+        <g class="node pressable" role="button" tabindex="0" data-case="railway" aria-label="TenX, engineer and project lead, 2023 to 2024">
+          <rect class="n-box" x="332" y="16" width="272" height="56" rx="12"/>
+          <text class="n-name" x="352" y="41">tenx</text>
+          <text class="n-meta" x="352" y="58">engineer + project lead · 2023—24</text>
+          <circle cx="578" cy="34" r="4.5" fill="var(--green)"/>
+        </g>
+        <g class="node pressable" role="button" tabindex="0" data-case="fabric" aria-label="Tkxel, data engineer, 2024 to 2025">
+          <rect class="n-box" x="16" y="156" width="272" height="56" rx="12"/>
+          <text class="n-name" x="36" y="181">tkxel</text>
+          <text class="n-meta" x="36" y="198">data engineer · 2024—25</text>
+          <circle cx="262" cy="174" r="4.5" fill="var(--green)"/>
+        </g>
+        <g class="node pressable" role="button" tabindex="0" data-case="loans" aria-label="10Pearls, senior data engineer, 2025 to present">
+          <rect class="n-box" x="332" y="156" width="272" height="56" rx="12"/>
+          <text class="n-name" x="352" y="181">10pearls</text>
+          <text class="n-meta" x="352" y="198">senior data engineer · 2025 —</text>
+          <circle cx="578" cy="174" r="4.5" fill="var(--blue)"/>
+        </g>
+        <g class="node pressable" role="button" tabindex="0" data-case="ms" aria-label="MS Data Science at UET Lahore, expected 2027">
+          <rect class="n-box" x="16" y="296" width="272" height="56" rx="12"/>
+          <text class="n-name" x="36" y="321">ms-data-science</text>
+          <text class="n-meta" x="36" y="338">uet lahore · exp. 2027</text>
+          <circle cx="262" cy="314" r="4.5" fill="var(--blue)"/>
+        </g>
+      </svg>
+
+      <ul class="dag-list">
+        <li role="button" tabindex="0" data-case="native"><div class="t">native-programmers</div><div class="m">data engineer · 2021—22</div></li>
+        <li role="button" tabindex="0" data-case="railway"><div class="t">tenx</div><div class="m">engineer + project lead · 2023—24</div></li>
+        <li role="button" tabindex="0" data-case="fabric"><div class="t">tkxel</div><div class="m">data engineer · 2024—25</div></li>
+        <li class="running" role="button" tabindex="0" data-case="loans"><div class="t">10pearls</div><div class="m">senior data engineer · 2025 —</div></li>
+        <li class="running" role="button" tabindex="0" data-case="ms"><div class="t">ms-data-science</div><div class="m">uet lahore · expected 2027</div></li>
+      </ul>
+
+      <div class="legend">
+        <span><i class="done"></i>completed</span>
+        <span><i class="run"></i>running</span>
+        <span>solid = role change</span>
+        <span>dashed = concurrent</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SUMMARY ===================== -->
+<div class="wrap">
+  <ul class="summary reveal">
+    <li><div class="k label">Time on the job</div><div class="v">Five years across finance, healthcare, IoT and railway data platforms.</div></li>
+    <li><div class="k label">Recovered project</div><div class="v">A railway PoC stuck for six months, <em>delivered in three</em>.</div></li>
+    <li><div class="k label">Migrations owned</div><div class="v">SQL&nbsp;Server + SSIS → <em>Snowflake + dbt</em>. ADF + Databricks → <em>Microsoft Fabric</em>, zero data loss.</div></li>
+    <li><div class="k label">Quality bar</div><div class="v">50+ dbt tests and Elementary monitors on every model. No data-quality issue has reached the presentation layer since.</div></li>
+  </ul>
+</div>
+
+<!-- ===================== WORK ===================== -->
+<section id="work">
+  <div class="wrap">
+    <div class="s-head reveal"><h2>Selected work</h2><span class="label">tap a card for the detail</span></div>
+    <div class="cards reveal">
+
+      <div class="card pressable" role="button" tabindex="0" data-case="loans">
+        <div class="top"><span class="label">10Pearls · 2025 —</span><span class="label">Finance</span></div>
+        <h3>Car finance &amp; loan servicing</h3>
+        <p class="blurb">Moved a multi-company loan servicing platform off SQL&nbsp;Server and SSIS onto Snowflake + dbt, then put Cortex AI on the call transcripts nobody had time to read.</p>
+        <div class="metrics"><span class="pill win">~20% faster runs</span><span class="pill win">Scoring: days → near real-time</span></div>
+        <span class="more">Read the detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <div class="card pressable" role="button" tabindex="0" data-case="fabric">
+        <div class="top"><span class="label">Tkxel · 2024—25</span><span class="label">Healthcare</span></div>
+        <h3>Fortune 500 Fabric migration</h3>
+        <p class="blurb">Sole engineer on the Pakistani side of a PoC migration from ADF + Databricks to Microsoft Fabric, for a client who had run out of patience with their stack.</p>
+        <div class="metrics"><span class="pill win">Zero data loss</span><span class="pill win">6+ domains consolidated</span></div>
+        <span class="more">Read the detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <div class="card pressable" role="button" tabindex="0" data-case="railway">
+        <div class="top"><span class="label">TenX · 2023—24</span><span class="label">Railway / IoT</span></div>
+        <h3>GT Railway train monitoring</h3>
+        <p class="blurb">Six months stalled on device files no tool could read. Wrote the parsers, modelled the event data, shipped the monitoring system in three months.</p>
+        <div class="metrics"><span class="pill win">6-month stall → 3</span><span class="pill win">~8 hrs/day of prep removed</span></div>
+        <span class="more">Read the detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <div class="card pressable" role="button" tabindex="0" data-case="agrilift">
+        <div class="top"><span class="label">TenX · 2023—24</span><span class="label">Agriculture / IoT</span></div>
+        <h3>Agrilift &amp; internal reporting</h3>
+        <p class="blurb">Crop-lifecycle reporting on a two-day turnaround, plus a BI queue everything went through. Data marts and self-service analytics cleared both.</p>
+        <div class="metrics"><span class="pill win">2 days → same day</span><span class="pill win">Ad-hoc queue −28%</span></div>
+        <span class="more">Read the detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESEARCH ===================== -->
+<section id="research">
+  <div class="wrap">
+    <div class="s-head reveal"><h2>Research</h2><span class="label">MS Data Science, UET Lahore</span></div>
+    <div class="builds reveal">
+      <article class="build">
+        <div class="tag label">MS thesis track</div>
+        <h3>agent-gap-probe</h3>
+        <p>Measuring how errors propagate through multi-step LLM agent pipelines, and why self-validation fails to catch them. Benchmarked over the full HumanEval and Spider sets with an ablation study; paper co-authored and submitted.</p>
+        <div class="foot">Python · HumanEval · Spider · LLM evaluation</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EARLIER ===================== -->
+<section id="earlier">
+  <div class="wrap">
+    <div class="s-head reveal"><h2>Where it started</h2><span class="label">database layer, 5 production apps</span></div>
+    <ul class="earlier reveal">
+      <li>
+        <div><h4>Native Programmers</h4><div class="when">Aug 2021 — Sep 2022 · Data Engineer</div></div>
+        <div class="txt">Designed and tuned SQL and NoSQL schemas for five production apps, choosing the database per project — MySQL, PostgreSQL, Firebase or Firestore — based on access patterns. Together the apps handled 100K+ daily transactions with no integrity issues. Benchmarked 40+ stored procedures before each release, cutting critical query times by up to ~25% through execution-plan analysis, and worked with a six-person backend team on the database-to-API layer.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== STACK ===================== -->
+<section id="stack">
+  <div class="wrap">
+    <div class="s-head reveal"><h2>Stack</h2><span class="label">what I reach for</span></div>
+    <div class="stack reveal">
+      <div class="row"><h4>Languages</h4><div class="items"><span>SQL</span><span>T-SQL</span><span>Python</span><span>PySpark</span><span>Spark SQL</span><span>DAX</span><span>M Query</span><span>Bash</span><span>YAML</span></div></div>
+      <div class="row"><h4>Warehouse &amp; cloud</h4><div class="items"><span>Snowflake</span><span>Microsoft Fabric</span><span>OneLake</span><span>Azure Databricks</span><span>Synapse</span><span>Azure SQL</span><span>Blob Storage</span><span>Google Cloud</span></div></div>
+      <div class="row"><h4>Transformation &amp; quality</h4><div class="items"><span>dbt</span><span>dbt tests</span><span>macros</span><span>snapshots</span><span>Elementary</span><span>data contracts</span></div></div>
+      <div class="row"><h4>Orchestration</h4><div class="items"><span>Argo Workflows</span><span>Apache Airflow</span><span>Azure Data Factory</span><span>SSIS</span><span>Kafka (learning)</span></div></div>
+      <div class="row"><h4>Modelling</h4><div class="items"><span>Medallion architecture</span><span>Dimensional modelling</span><span>Semantic layer</span><span>ELT/ETL design</span><span>CI/CD</span></div></div>
+      <div class="row"><h4>BI</h4><div class="items"><span>Power BI</span><span>Sigma Computing</span><span>Tableau</span><span>Apache Superset</span><span>IBM Cognos</span></div></div>
+      <div class="row"><h4>AI &amp; agents</h4><div class="items"><span>Snowflake Cortex AI</span><span>Multi-agent ensembles</span><span>Skill-store architecture</span><span>Agentic pipeline tooling</span></div></div>
+      <div class="row"><h4>Tools</h4><div class="items"><span>Git</span><span>GitHub</span><span>Azure DevOps</span><span>Docker</span><span>Linux</span><span>Talend</span><span>DataStage</span><span>SSMS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CREDENTIALS ===================== -->
+<section id="creds">
+  <div class="wrap">
+    <div class="s-head reveal"><h2>Education &amp; training</h2><span class="label">in progress and completed</span></div>
+    <div class="creds reveal">
+      <div>
+        <h4>Education</h4>
+        <ul>
+          <li>MS Data Science<span>University of Engineering &amp; Technology, Lahore · weekend programme · expected 2027</span></li>
+          <li>BS Software Engineering<span>Superior University, Lahore · 2022</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Certifications</h4>
+        <ul>
+          <li>Microsoft Certified: Fabric Data Engineer Associate <span class="nw">(DP-700)</span><span>Microsoft · Oct 2026</span></li>
+          <li>Data Engineering with Databricks<span>Databricks</span></li>
+          <li>Databricks Lakehouse Fundamentals<span>Databricks</span></li>
+          <li>Foundation of Data Engineering<span>Informatica</span></li>
+          <li>Data-Driven Decision Making<span>Google / Coursera</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<div class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Got a pipeline that's already stalled once?</h2>
+    <p class="reveal">Send it over. I work remotely with UK, EU and US teams and I'm quickest to reply by email.</p>
+    <div class="clist reveal">
+      <a href="mailto:Noumanfaiz.369@gmail.com" data-copy="Noumanfaiz.369@gmail.com" data-copy-label="Email address"><span class="lbl">Email</span><span>Noumanfaiz.369@gmail.com</span></a>
+      <a href="tel:+923044766916" data-copy="+92 304 4766916" data-copy-label="Phone number"><span class="lbl">Phone</span><span>+92 304 4766916</span></a>
+      <a href="https://www.linkedin.com/in/nouman-faiz-805945102" target="_blank" rel="noopener"><span class="lbl">LinkedIn</span><span>nouman-faiz</span></a>
+      <a href="resume.pdf" download="Muhammad_Nouman_Faiz_Resume.pdf" data-resume><span class="lbl">Résumé</span><span>PDF</span></a>
+      <span class="item"><span class="lbl">Based in</span><span>Lahore, Pakistan</span></span>
+      <span class="item"><span class="lbl">Hours</span><span>EST · UK · CET overlap</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap"><footer>
+  <span>© <span id="yr">2026</span> Muhammad Nouman Faiz</span>
+  <span>Static page, deployed on Vercel</span>
+</footer></div>
+
+</main>
+
+<!-- ===================== SHEET ===================== -->
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="sheet-grab" id="grab" aria-hidden="true"></div>
+  <div class="sheet-top" id="sheet-top">
+    <div>
+      <div class="label" id="sheet-eyebrow">—</div>
+      <h3 id="sheet-title" style="margin-top:.35rem">—</h3>
+    </div>
+    <button class="sheet-close pressable" id="sheet-close" aria-label="Close">✕</button>
+  </div>
+  <div class="sheet-body" id="sheet-body"></div>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Detail content: in the DOM for crawlers, moved into the sheet on open -->
+<div class="detail-src" id="details" aria-hidden="true">
+
+  <div data-id="loans" data-eyebrow="10Pearls · Senior Data Engineer · Feb 2025 — present" data-title="Car finance &amp; loan servicing platform">
+    <p class="problem">A multi-company loan servicing platform ran on SQL&nbsp;Server and SSIS, with chronic resource contention and slow nightly processes. Supervisors also read call transcripts by hand, so scoring lagged days behind the calls.</p>
+    <h4>What I did</h4>
+    <ul class="did">
+      <li>Led the migration onto Snowflake + dbt and rewrote the slow SQL processes as modelled, tested dbt transformations.</li>
+      <li>Built a call-scoring pipeline in dbt on Snowflake Cortex AI — new transcripts are picked up, scored, and loaded into the analytics model with no manual review.</li>
+      <li>Built a multi-agent reasoning framework with a central skill store: an orchestrator runs specialised agents in parallel, each solves independently, then they vote. Lower hallucination risk than a single-model call.</li>
+      <li>Built a test-data workflow where agents read dbt data contracts and generate synthetic seeds, so nobody waits on production data to test a model.</li>
+      <li>Moved Argo Workflows CI/CD from plaintext credentials to OAuth and stripped hardcoded secrets out of every pipeline config.</li>
+      <li>Added build-failure locking to the single-trunk dbt repo, so a failed deployment can't cascade into staging or prod.</li>
+      <li>Set up Elementary across all models for freshness, volume and schema-drift checks, and wrote 50+ dbt tests across Silver and Gold.</li>
+    </ul>
+    <h4>What changed</h4>
+    <div class="metrics">
+      <span class="pill win">~20% faster pipeline runs</span>
+      <span class="pill win">Transcript scoring: days → near real-time</span>
+      <span class="pill win">~25% more issues caught before Gold</span>
+      <span class="pill win">Highest bug resolution rate on the team</span>
+    </div>
+    <h4>Stack</h4>
+    <div class="techline">Snowflake · dbt · Snowflake Cortex AI · Elementary · Argo Workflows · Azure SQL · Blob Storage · Azure AD · Azure DevOps CI/CD · SQL Server · SSIS</div>
+  </div>
+
+  <div data-id="fabric" data-eyebrow="Tkxel · Data Engineer · Jun 2024 — Jan 2025" data-title="Fortune 500 healthcare — Fabric migration PoC">
+    <p class="problem">A healthcare and pharma client had run out of patience with ADF + Databricks. We pitched Microsoft Fabric as the replacement and had to prove it. I was the only engineer on the Pakistani side — no local backup, all technical communication and delivery mine.</p>
+    <h4>What I did</h4>
+    <ul class="did">
+      <li>Ran the PoC migration end to end and delivered on schedule with zero data loss, consolidating 6+ source domains and retiring 3 redundant services.</li>
+      <li>Designed a Medallion architecture (Bronze → Silver → Gold) on OneLake, giving reporting teams that had each been pulling from separate sources one shared foundation.</li>
+      <li>Provisioned everything from scratch — workspaces, ingestion pipelines, Azure monitoring — and took it to production without infra support.</li>
+      <li>Built CI/CD across dev, staging and prod in Azure DevOps.</li>
+      <li>Handled client-reported bugs and feature requests in parallel with the migration, at the highest resolution rate on the engagement.</li>
+    </ul>
+    <h4>What changed</h4>
+    <div class="metrics">
+      <span class="pill win">Zero data loss</span>
+      <span class="pill win">~20% faster Power BI refresh</span>
+      <span class="pill win">~25% faster query execution</span>
+      <span class="pill win">~25% fewer deployment errors</span>
+    </div>
+    <h4>Stack</h4>
+    <div class="techline">Microsoft Fabric · OneLake · ADF · Azure SQL · Blob Storage · Azure AD · Azure Alerts · Azure DevOps CI/CD · Power BI (Power Query, DAX, dimensional modelling)</div>
+  </div>
+
+  <div data-id="railway" data-eyebrow="TenX · Engineer + project lead · Jan 2023 — Jun 2024" data-title="GT Railway — IoT train monitoring">
+    <p class="problem">The project had been stuck for six months before it reached our team. The blocker: trackside devices wrote proprietary TXT and DSN files that no tool could ingest. We had a working system in three months.</p>
+    <h4>What I did</h4>
+    <ul class="did">
+      <li>Wrote the Python parsers for the device file formats — that single piece unblocked everything downstream.</li>
+      <li>Designed the data model for publishing IoT event data, then a semantic layer on top for OLAP queries and real-time monitoring.</li>
+      <li>Ran KPI workshops with five railway directors, then worked with DevOps to research and configure the infrastructure.</li>
+      <li>Built three Power BI dashboards for three audiences: executives get efficiency KPIs only; managers get behavioural incident analysis such as unexpected brake events; operations get every second logged, with threshold alerts visible the moment the dashboard opens.</li>
+      <li>Built 8 Talend pipelines for the structured CSV feeds alongside the custom parsers.</li>
+    </ul>
+    <h4>What changed</h4>
+    <div class="metrics">
+      <span class="pill win">6-month stall → shipped in 3</span>
+      <span class="pill win">~8 hours/day of manual prep removed</span>
+      <span class="pill win">15+ daily dashboard users</span>
+    </div>
+    <h4>Stack</h4>
+    <div class="techline">Python · Talend · Vertica · SQL Server · Azure Databricks · Apache Airflow · Power BI · IBM InfoSphere DataStage</div>
+  </div>
+
+  <div data-id="agrilift" data-eyebrow="TenX · Parallel track · Jan 2023 — Jun 2024" data-title="Agrilift &amp; internal reporting">
+    <p class="problem">Drone flights, crop cycles, fertilisation schedules and harvest outcomes were reported on a two-day turnaround, and every new question went through the BI queue. Management tracked company performance by hand.</p>
+    <h4>What I did</h4>
+    <ul class="did">
+      <li>Built and maintained 12 reports across the crop lifecycle and got turnaround down to same-day.</li>
+      <li>Set up 15+ materialised query tables as data marts for the high-frequency workloads.</li>
+      <li>Stood up Apache Superset and moved 20+ business users onto self-service analytics.</li>
+      <li>Built RM-Tool, an internal dashboard tracking customer metrics, hours submitted versus billed and department performance, cross-checked against PM data to show where planned and actual effort diverged.</li>
+    </ul>
+    <h4>What changed</h4>
+    <div class="metrics">
+      <span class="pill win">Reporting: 2 days → same day</span>
+      <span class="pill win">~25% faster queries</span>
+      <span class="pill win">Ad-hoc BI queue down ~28%</span>
+    </div>
+    <h4>Stack</h4>
+    <div class="techline">Apache Superset · Vertica · SQL Server · Power BI · IBM Cognos · Python</div>
+  </div>
+
+  <div data-id="native" data-eyebrow="Native Programmers · Data Engineer · Aug 2021 — Sep 2022" data-title="Database layer for 5 production apps">
+    <p class="problem">Five production apps, each with different access patterns, all needing a database layer that wouldn't buckle under load or drift out of integrity.</p>
+    <h4>What I did</h4>
+    <ul class="did">
+      <li>Designed and tuned SQL and NoSQL schemas, picking MySQL, PostgreSQL, Firebase or Firestore per project based on how the data was actually read and written.</li>
+      <li>Benchmarked and optimised 40+ stored procedures before each release through execution-plan analysis.</li>
+      <li>Worked with a six-person backend team to integrate the database layer with the application APIs.</li>
+    </ul>
+    <h4>What changed</h4>
+    <div class="metrics">
+      <span class="pill win">100K+ daily transactions, no integrity issues</span>
+      <span class="pill win">~20% faster queries</span>
+      <span class="pill win">Critical queries up to ~25% faster</span>
+    </div>
+    <h4>Stack</h4>
+    <div class="techline">SQL Server · MySQL · PostgreSQL · Firebase · Firestore · Google Cloud · DialogFlow</div>
+  </div>
+
+  <div data-id="ms" data-eyebrow="UET Lahore · Weekend programme · expected 2027" data-title="MS Data Science">
+    <p class="problem">Running a master's alongside full-time delivery work. The research track is where the agent tooling I use at work gets tested properly instead of anecdotally.</p>
+    <h4>Research</h4>
+    <ul class="did">
+      <li><strong>agent-gap-probe</strong> — measuring how errors propagate through multi-step LLM agent pipelines, and why a pipeline's own self-validation step fails to catch them.</li>
+      <li>Benchmarked across the full HumanEval (164 tasks) and Spider (125 tasks) sets, with an ablation study isolating the validation step.</li>
+      <li>Paper co-authored and submitted; peer-reviewed two other cohort papers along the way.</li>
+    </ul>
+    <h4>Stack</h4>
+    <div class="techline">Python · HumanEval · Spider · LLM evaluation harnesses · Git</div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ----------------------------------------------------------
+     Spring — damping ratio + response, velocity aware,
+     retargetable mid-flight (never restarts from the target)
+     ---------------------------------------------------------- */
+  function Spring(opts) {
+    this.damping = opts.damping != null ? opts.damping : 1;
+    this.response = opts.response != null ? opts.response : 0.4;
+    this.value = opts.value || 0;
+    this.velocity = 0;
+    this.target = opts.value || 0;
+    this.onUpdate = opts.onUpdate || function () {};
+    this.onRest = opts.onRest || function () {};
+    this._raf = null;
+    this._last = 0;
+  }
+  Spring.prototype.setTarget = function (t, velocity) {
+    this.target = t;
+    if (velocity != null) this.velocity = velocity; // hand off gesture velocity
+    this._start();
+  };
+  Spring.prototype.set = function (v) { // 1:1 drag writes straight through
+    this.stop();
+    this.value = v;
+    this.onUpdate(v);
+  };
+  Spring.prototype.stop = function () {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    this._raf = null;
+  };
+  Spring.prototype._start = function () {
+    if (this._raf) return;                       // already running: new target is enough
+    this._last = performance.now();
+    var self = this;
+    var tick = function (now) {
+      var dt = Math.min((now - self._last) / 1000, 1 / 30);
+      self._last = now;
+      var omega = (2 * Math.PI) / self.response;
+      var zeta = self.damping;
+      var steps = 2;                             // substep for stability
+      for (var i = 0; i < steps; i++) {
+        var h = dt / steps;
+        var a = -2 * zeta * omega * self.velocity - omega * omega * (self.value - self.target);
+        self.velocity += a * h;
+        self.value += self.velocity * h;
+      }
+      self.onUpdate(self.value);
+      if (Math.abs(self.value - self.target) < 0.4 && Math.abs(self.velocity) < 8) {
+        self.value = self.target;
+        self.velocity = 0;
+        self.onUpdate(self.value);
+        self._raf = null;
+        self.onRest();
+        return;
+      }
+      self._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  };
+
+  /* Momentum projection — where the flick is going, not where it let go */
+  function project(velocity, decelerationRate) {
+    var d = decelerationRate || 0.998;
+    return (velocity / 1000) * d / (1 - d);
+  }
+  /* Progressive resistance past a boundary */
+  function rubberband(overshoot, dimension, constant) {
+    var c = constant || 0.55;
+    return (overshoot * dimension * c) / (dimension + c * Math.abs(overshoot));
+  }
+
+  /* ----------------------------------------------------------
+     Press feedback on pointer-down (not on click)
+     ---------------------------------------------------------- */
+  document.addEventListener('pointerdown', function (e) {
+    var el = e.target.closest ? e.target.closest('.pressable, .dag-list li') : null;
+    if (!el) return;
+    el.classList.add('pressing');
+    var clear = function () { el.classList.remove('pressing'); };
+    el.addEventListener('pointerup', clear, { once: true });
+    el.addEventListener('pointercancel', clear, { once: true });
+    el.addEventListener('pointerleave', clear, { once: true });
+  }, true);
+
+  /* ----------------------------------------------------------
+     Sheet
+     ---------------------------------------------------------- */
+  var sheet = document.getElementById('sheet');
+  var scrim = document.getElementById('scrim');
+  var body = document.getElementById('sheet-body');
+  var titleEl = document.getElementById('sheet-title');
+  var eyebrowEl = document.getElementById('sheet-eyebrow');
+  var details = document.getElementById('details');
+  var lastTrigger = null;
+  var open = false;
+  var height = 0;
+  var closeTimer = null;
+
+  /* Safety net: if the close animation is ever interrupted, finish closing anyway */
+  function armCloseFallback() {
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(function () {
+      if (!open && sheet.classList.contains('on')) {
+        spring.stop();
+        spring.value = height;
+        paint(height);
+        finishClose();
+      }
+    }, 900);
+  }
+
+  function paint(y) {
+    var clamped = Math.max(0, y);
+    sheet.style.transform = 'translate(-50%,' + clamped + 'px)';
+    var p = height ? 1 - clamped / height : 1;
+    scrim.style.opacity = Math.max(0, Math.min(1, p));
+  }
+
+  var spring = new Spring({
+    damping: 0.85, response: 0.32,          // sheet: a little bounce, it's a thrown surface
+    onUpdate: paint,
+    onRest: function () { if (!open) finishClose(); }
+  });
+
+  function openSheet(id, trigger) {
+    var src = details.querySelector('[data-id="' + id + '"]');
+    if (!src) return;
+    clearTimeout(closeTimer);
+    lastTrigger = trigger || null;
+    eyebrowEl.innerHTML = src.getAttribute('data-eyebrow');
+    titleEl.innerHTML = src.getAttribute('data-title');
+    body.innerHTML = src.innerHTML;
+    body.scrollTop = 0;
+
+    sheet.classList.add('on');
+    scrim.classList.add('on');
+    sheet.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    open = true;
+
+    height = sheet.offsetHeight || window.innerHeight * 0.8;
+    if (reduceMotion.matches) {
+      spring.set(0);
+      scrim.style.opacity = 1;
+    } else {
+      spring.value = height;
+      paint(height);
+      spring.setTarget(0, 0);
+    }
+    document.getElementById('sheet-close').focus({ preventScroll: true });
+  }
+
+  function closeSheet(velocity) {
+    if (!open) return;
+    open = false;
+    height = sheet.offsetHeight || height;
+    if (reduceMotion.matches) { paint(height); finishClose(); return; }
+    spring.setTarget(height, velocity || 0);
+    armCloseFallback();
+  }
+
+  function finishClose() {
+    if (!sheet.classList.contains('on')) return;
+    clearTimeout(closeTimer);
+    sheet.classList.remove('on');
+    scrim.classList.remove('on');
+    sheet.setAttribute('aria-hidden', 'true');
+    scrim.style.opacity = 0;
+    document.body.style.overflow = '';
+    if (lastTrigger && lastTrigger.focus) lastTrigger.focus({ preventScroll: true });
+  }
+
+  /* triggers */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-case]') : null;
+    if (!t) return;
+    openSheet(t.getAttribute('data-case'), t);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && open) { closeSheet(0); return; }
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.closest) {
+      var t = e.target.closest('[data-case][tabindex], .node[data-case]');
+      if (t) { e.preventDefault(); openSheet(t.getAttribute('data-case'), t); }
+    }
+  });
+  document.getElementById('sheet-close').addEventListener('click', function () { closeSheet(0); });
+  scrim.addEventListener('click', function () { closeSheet(0); });
+
+  /* keep focus inside the sheet while it's up */
+  document.addEventListener('focusin', function (e) {
+    if (open && !sheet.contains(e.target)) {
+      document.getElementById('sheet-close').focus({ preventScroll: true });
+    }
+  });
+
+  /* ----------------------------------------------------------
+     Drag to dismiss — 1:1 tracking, rubber-band at the top,
+     momentum projection and velocity handoff on release
+     ---------------------------------------------------------- */
+  var dragging = false, startY = 0, startValue = 0, history = [];
+
+  function trackable(e) {
+    if (e.target.closest('.sheet-close')) return false;
+    if (e.target.closest('.sheet-body')) return body.scrollTop <= 0; // only from the top of the scroll
+    return true;
+  }
+
+  sheet.addEventListener('pointerdown', function (e) {
+    if (!open || !trackable(e)) return;
+    dragging = true;
+    spring.stop();                      // grab it mid-flight, keep the on-screen value
+    startY = e.clientY;
+    startValue = spring.value;
+    height = sheet.offsetHeight || height;
+    history = [{ y: e.clientY, t: performance.now() }];
+    sheet.setPointerCapture(e.pointerId);
+  });
+
+  sheet.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var delta = e.clientY - startY;
+    var y = startValue + delta;
+    if (y < 0) y = -rubberband(-y, height); // resist past the top, don't hard-stop
+    spring.set(y);
+    history.push({ y: e.clientY, t: performance.now() });
+    if (history.length > 6) history.shift();
+  });
+
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    var last = history[history.length - 1];
+    var first = history[0];
+    var dt = last && first ? (last.t - first.t) : 0;
+    var velocity = dt > 0 ? ((last.y - first.y) / dt) * 1000 : 0;   // px/s
+    var projected = spring.value + project(velocity);
+    if (projected > height * 0.4 || velocity > 550) {
+      open = false;
+      spring.setTarget(height, velocity);      // continue at the finger's speed
+      armCloseFallback();
+    } else {
+      spring.setTarget(0, velocity);
+    }
+  }
+  sheet.addEventListener('pointerup', endDrag);
+  sheet.addEventListener('pointercancel', endDrag);
+
+  window.addEventListener('resize', function () {
+    if (open) { height = sheet.offsetHeight || height; }
+  });
+
+  /* ----------------------------------------------------------
+     Toast
+     ---------------------------------------------------------- */
+  var toastEl = document.getElementById('toast');
+  var toastTimer = null;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('on'); }, 3500);
+  }
+
+  /* ----------------------------------------------------------
+     Inside Claude's artifact viewer the page runs in a sandboxed
+     frame, where <a download>, mailto: and tel: are blocked or
+     unreliable. On a normal host (Vercel) none of this kicks in
+     and the links behave natively.
+     ---------------------------------------------------------- */
+  function inViewer() {
+    return !!(window.claude && typeof window.claude.use === 'function');
+  }
+
+  /* Email and phone: also copy the value, so the click always lands */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[data-copy]') : null;
+    if (!a || !inViewer()) return;
+    var value = a.getAttribute('data-copy');
+    var label = a.getAttribute('data-copy-label') || 'Copied';
+    var shown = function () { toast(label + ': ' + value); };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function () {
+          toast(label + ' copied: ' + value);
+        }, shown);
+      } else { shown(); }
+    } catch (err) { shown(); }
+  });
+
+  /* Résumé: saved through the viewer's downloads capability */
+  var RESUME_NAME = 'Muhammad_Nouman_Faiz_Resume.pdf';
+  var downloadsP = null, resumeP = null;
+  function getDownloads() {
+    if (!downloadsP) {
+      downloadsP = Promise.resolve()
+        .then(function () { return window.claude.use('downloads'); })
+        .catch(function () { return null; });
+    }
+    return downloadsP;
+  }
+  function getResume() {
+    if (!resumeP) {
+      resumeP = fetch('resume.pdf').then(function (r) {
+        if (!r.ok) throw new Error('resume.pdf ' + r.status);
+        return r.blob();
+      });
+      resumeP.catch(function () { resumeP = null; });   // allow a retry
+    }
+    return resumeP;
+  }
+  if (inViewer()) {
+    getResume();                                        // warm it so the save runs inside the click
+    getDownloads().then(function (dl) {
+      if (dl) return;
+      Array.prototype.forEach.call(document.querySelectorAll('a[data-resume]'), function (a) {
+        a.hidden = true;                                // this view can't save files: hide the dead button
+      });
+    });
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[data-resume]') : null;
+    if (!a || !inViewer()) return;                      // normal host: the browser downloads resume.pdf itself
+    e.preventDefault();
+    Promise.all([getDownloads(), getResume()]).then(function (r) {
+      var dl = r[0], blob = r[1];
+      if (!dl) { toast('Downloads aren’t available in this view. Email me and I’ll send the PDF.'); return; }
+      return dl.save({ filename: RESUME_NAME, data: blob }).then(function (res) {
+        if (res && res.status === 'saved') toast('Résumé downloaded');
+      }, function (err) {
+        var code = err && err.code;
+        if (code === 'declined') return;
+        if (code === 'rate_limited') { toast('A download prompt is already open.'); return; }
+        if (code === 'host_unavailable') { toast('This app can’t save files. Open the page in a browser to download the résumé.'); return; }
+        toast('Couldn’t start the download here. Email me and I’ll send the PDF.');
+      });
+    }).catch(function () {
+      toast('Couldn’t load the résumé. Try again in a moment.');
+    });
+  });
+
+  /* ----------------------------------------------------------
+     Scroll reveal
+     ---------------------------------------------------------- */
+  var els = document.querySelectorAll('.reveal');
+  if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(els, function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
